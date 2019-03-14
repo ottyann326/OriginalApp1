@@ -1,0 +1,10 @@
+<%= link_to "投稿画面", new_racket_path %>
+<% @rackets.each do |racket| %>
+  <p>
+    <%= racket.name %>
+    <%= racket.price %>
+    <%= racket.kind %>
+    <%= link_to "削除", racket_path(racket), method: :delete, data: {confirm: "削除しますか？"} %>
+    <%= link_to "編集", edit_racket_path(racket) %>
+  </p>
+<% end %>
