@@ -5,6 +5,7 @@
     <p>値段:<%= f.text_field :price %></p>
     <p>種類:<%= f.text_field :kind %></p>
     <p>画像:<%= f.file_field :image %></p>
-    <p><%= f.check_box :remove_image %>更新する前の画像を削除する</p>
+    <%= image_tag @racket.image_url(:thumb).to_s if @racket.image? %>
+    <p><%= f.check_box :remove_image %>現在の画像を削除する</p>
   <input type="submit" value="送信">
 <% end %>
