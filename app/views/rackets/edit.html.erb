@@ -1,11 +1,28 @@
+<%= link_to "一覧画面へ戻る", root_path %>
 <%= form_for @racket, method: :patch do |f| %>
   <h1>ラケット 情報更新</h1>
   <h2>更新したい情報を編集してください</h2>
     <p>名前:<%= f.text_field :name %></p>
     <p>値段:<%= f.text_field :price %></p>
     <p>種類:<%= f.text_field :kind %></p>
-    <p>画像:<%= f.file_field :image %></p>
-    <%= image_tag @racket.image_url(:thumb).to_s if @racket.image? %>
+    <p>画像:<%= f.file_field :image, id: :racket_image %></p>
+    <script type="text/javascript">
+      $(function() {
+       function readURL(input) {
+         if (input.files && input.files[0]) {
+           var reader = new FileReader();
+           reader.onload = function (e) {
+             $('#image_prev').attr('src', e.target.result);
+           }
+           reader.readAsDataURL(input.files[0]);
+         }
+       }
+       $("#racket_image").change(function(){
+         readURL(this);
+       });
+      });
+    </script>
+    <%= image_tag @racket.image_url(:thumb).to_s, id: :image_prev if @racket.image? %>
     <p><%= f.check_box :remove_image %>現在の画像を削除する</p>
   <input type="submit" value="送信">
 <% end %>
