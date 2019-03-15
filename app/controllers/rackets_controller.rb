@@ -25,8 +25,12 @@ class RacketsController < ApplicationController
     racket.update(racket_params)
   end
 
+  def show
+    @racket = Racket.find(params[:id])
+  end
+
   private
     def racket_params
-      params.require(:racket).permit(:name, :price, :kind, :image)
+      params.require(:racket).permit(:name, :price, :kind, :image, :remove_image)
     end
 end
