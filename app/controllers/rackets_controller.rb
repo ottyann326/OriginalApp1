@@ -8,7 +8,7 @@ class RacketsController < ApplicationController
   end
 
   def create
-    racket = Racket.create(racket_params)
+    Racket.create(racket_params)
   end
 
   def destroy
@@ -27,6 +27,6 @@ class RacketsController < ApplicationController
 
   private
     def racket_params
-      params.require(:racket).permit(:name, :price, :kind)
+      params.require(:racket).permit(:name, :price, :kind, :image)
     end
 end
