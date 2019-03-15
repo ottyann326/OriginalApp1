@@ -1,0 +1,7 @@
+<h1>ラケット 詳細情報</h1>
+  <p>名前:<%= @racket.name %></p>
+  <p>値段:<%= @racket.price %></p>
+  <p>種類:<%= @racket.kind %></p>
+  <p>画像:<%= image_tag @racket.image_url(:thumb).to_s %></p>
+  <%= link_to "削除", racket_path(@racket), method: :delete, data: {confirm: "削除しますか？"} %>
+  <%= link_to "編集", edit_racket_path(@racket) %>
