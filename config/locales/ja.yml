@@ -3,6 +3,7 @@ ja:
     models:
       racket: 'ラケット'
       admin_user: '管理者'
+      comment: 'コメント'
     attributes:
       racket:
         name: '名前'
