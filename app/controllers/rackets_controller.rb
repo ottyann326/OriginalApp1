@@ -1,6 +1,7 @@
 class RacketsController < ApplicationController
   def index
-    @rackets = Racket.all
+    racket = Racket.new(params_racket_search)
+    @rackets = racket.search
   end
 
   def new
@@ -32,5 +33,9 @@ class RacketsController < ApplicationController
   private
     def racket_params
       params.require(:racket).permit(:name, :price, :kind, :image, :remove_image)
+    end
+
+    def params_racket_search
+      params.permit(:search_name, :search_price, :search_kind, :search_image)
     end
 end
