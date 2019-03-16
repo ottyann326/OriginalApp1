@@ -1,4 +1,3 @@
-<%= link_to "投稿画面", new_racket_path %>
 <% @rackets.each do |racket| %>
   <p>
     <%= image_tag racket.image_url(:thumb).to_s %>
