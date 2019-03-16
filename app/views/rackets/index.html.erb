@@ -1,8 +1,9 @@
 <%= form_tag(root_path, method: :get) do %>
   <%= label_tag :名前 %>
   <%= text_field_tag :search_name %>
-  <%= label_tag :種類 %>
+  <br><%= label_tag :種類 %>
   <%= text_field_tag :search_kind %>
+  </br>
   <%= submit_tag '検索' %>
 <% end %>
 
