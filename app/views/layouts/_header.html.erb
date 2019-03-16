@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" ><%= link_to "　ラケット一覧　", root_path %></a>
+  <a class="navbar-brand" href="<%= root_path %>" >ラケット一覧</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a><%= link_to "　投稿画面　", new_racket_path %></a>
+        <a class="nav-link" href="<%= new_racket_path %>">投稿画面</a>
       </li>
     </ul>
   </div>

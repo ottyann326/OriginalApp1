@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      racket: 'ラケット'
+      admin_user: '管理者'
+    attributes:
+      racket:
+        name: '名前'
+        price: '値段'
+        kind: '種類'
+        image: '画像'
+        created_at: '作成日時'
+        updated_at: '更新日時'
