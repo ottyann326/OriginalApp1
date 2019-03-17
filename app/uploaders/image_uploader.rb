@@ -1,6 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-  storage :fog
+  storage :file
   process convert: 'jpg'
   # 保存するディレクトリ名
   def store_dir

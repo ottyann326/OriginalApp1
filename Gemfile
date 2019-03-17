@@ -21,7 +21,6 @@ gem 'activeadmin'
 gem 'devise'
 gem 'rails-i18n'
 gem 'aws-sdk-s3', require: false
-gem 'fog'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
