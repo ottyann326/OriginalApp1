@@ -1,4 +1,6 @@
 class Racket < ApplicationRecord
+  has_one_attached :image
+
   mount_uploader :image, ImageUploader
 
   attr_accessor :search_name, :search_price, :search_kind, :search_image
