@@ -6,7 +6,15 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<%= new_racket_path %>">投稿画面</a>
+        <% if user_signed_in? %>
+          <div class="nav-link"></div> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <div class="nav-link"></div> <%= link_to "投稿画面", new_racket_path %>
+          <div class="nav-link"></div> <%= link_to "マイページ", user_path(current_user.id) %>
+        <% else %>
+          <div class="nav-link"></div> <%= link_to "ログイン", new_user_session_path %>
+          <div class="nav-link"></div> <%= link_to "投稿画面", new_racket_path %>
+          <div class="nav-link"></div> <%= link_to "新規登録", new_user_registration_path %>
+        <% end %>
       </li>
     </ul>
   </div>

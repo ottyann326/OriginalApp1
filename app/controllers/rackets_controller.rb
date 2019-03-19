@@ -10,7 +10,7 @@ class RacketsController < ApplicationController
   end
 
   def create
-    Racket.create(racket_params)
+    Racket.create(name: racket_params[:name], price: racket_params[:price],kind: racket_params[:kind],image: racket_params[:image],user_id: current_user.id)
   end
 
   def destroy

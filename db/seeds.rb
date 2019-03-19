@@ -5,4 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+Racket.create(name: "SK-1", price: 1111, user_id: 1)
+Racket.create(name: "SK-2", price: 2222, user_id: 1)
+Racket.create(name: "SK-3", price: 3333, user_id: 1)
