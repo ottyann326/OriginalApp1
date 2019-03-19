@@ -2,6 +2,7 @@ class RacketsController < ApplicationController
   def index
     racket = Racket.new(params_racket_search)
     @rackets = racket.search
+    @rackets = @rackets.order(:name).page params[:page]
   end
 
   def new
