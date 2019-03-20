@@ -1,10 +1,7 @@
 <%= form_tag(root_path, method: :get) do %>
-  <%= label_tag :名前 %>
-  <%= text_field_tag :search_name %>
-  <br><%= label_tag :種類 %>
-  <%= text_field_tag :search_kind %>
-  </br>
-  <%= submit_tag '検索' %>
+  <div class="my-md-3">名前:<%= text_field_tag :search_name %></div>
+  <div class="my-md-2">種類:<%= text_field_tag :search_kind %></div>
+  <div class="mb-2"><%= submit_tag '検索' %></div>
 <% end %>
 
 <% if user_signed_in? %>
@@ -12,12 +9,11 @@
     <p>
       <%= image_tag racket.image_url(:thumb).to_s %>
       <%= racket.name %>
-      <%= racket.price %>
+      <%= racket.price %>円
       <%= racket.kind %>
       <%= link_to "詳細", racket_path(racket) %>
       <%= link_to "編集", edit_racket_path(racket) %>
       <%= link_to "削除", racket_path(racket), method: :delete, data: {confirm: "削除しますか？"} %>
-
     </p>
   <% end %>
 <% else %>
@@ -25,12 +21,11 @@
     <p>
       <%= image_tag racket.image_url(:thumb).to_s %>
       <%= racket.name %>
-      <%= racket.price %>
+      <%= racket.price %>円
       <%= racket.kind %>
       <%= link_to "詳細", racket_path(racket) %>
       <%= link_to "編集", edit_racket_path(racket) %>
-      <!--下記の「削除は〜」はの一文は後ほど消すこと  -->
-      <p>削除はログインしたらできます</p>
+    </p>
   <% end %>
 <% end %>
 

@@ -1,11 +1,13 @@
-<% @user.rackets.each do |racket| %>
-  <p>
-    <%= image_tag racket.image_url(:thumb).to_s %>
-    <%= racket.name %>
-    <%= racket.price %>
-    <%= racket.kind %>
-    <%= link_to "詳細", racket_path(racket) %>
-    <%= link_to "編集", edit_racket_path(racket) %>
-    <%= link_to "削除", racket_path(racket), method: :delete, data: {confirm: "削除しますか？"} %>
-  </p>
-<% end %>
+<h2>マイページ</h2>
+  <div class="mb-3">あなたが投稿したラケットの情報が表示されます</div>
+    <% @user.rackets.each do |racket| %>
+      <p>
+        <%= image_tag racket.image_url(:thumb).to_s %>
+        <%= racket.name %>
+        <%= racket.price %>円
+        <%= racket.kind %>
+        <%= link_to "詳細", racket_path(racket) %>
+        <%= link_to "編集", edit_racket_path(racket) %>
+        <%= link_to "削除", racket_path(racket), method: :delete, data: {confirm: "削除しますか？"} %>
+      </p>
+    <% end %>
