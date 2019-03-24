@@ -1,9 +1,13 @@
 class RacketsController < ApplicationController
+  before_action :set_racket, only: [:destroy, :edit, :update, :show]
+
   def index
     racket = Racket.new(params_racket_search)
     @rackets = racket.search
     @rackets = @rackets.order(:name).page params[:page]
   end
+
+# before_actionにより、destroy, edit, update, showメソッドでは、@racket = Racket.find(params[:id])の記述はいらなくなる。
 
   def new
     @racket = Racket.new
@@ -14,21 +18,17 @@ class RacketsController < ApplicationController
   end
 
   def destroy
-    racket = Racket.find(params[:id])
-    racket.destroy
+    @racket.destroy
   end
 
   def edit
-    @racket = Racket.find(params[:id])
   end
 
   def update
-    racket = Racket.find(params[:id])
-    racket.update(racket_params)
+    @racket.update(racket_params)
   end
 
   def show
-    @racket = Racket.find(params[:id])
   end
 
   private
@@ -38,5 +38,9 @@ class RacketsController < ApplicationController
 
     def params_racket_search
       params.permit(:search_name, :search_price, :search_kind, :search_image)
+    end
+
+    def set_racket
+      @racket = Racket.find(params[:id])
     end
 end
