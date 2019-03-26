@@ -23,5 +23,5 @@
       </script>
       <%= image_tag @racket.image_url(:thumb).to_s, id: :image_prev if @racket.image? %>
       <p><%= f.check_box :remove_image %>現在の画像を削除する</p>
-    <input type="submit" value="送信">
+    <input type="submit" value="更新する">
   <% end %>
