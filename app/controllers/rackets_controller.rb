@@ -14,7 +14,12 @@ class RacketsController < ApplicationController
   end
 
   def create
-    Racket.create(name: racket_params[:name], price: racket_params[:price],kind: racket_params[:kind],image: racket_params[:image],user_id: current_user.id)
+    @racket = Racket.create(name: racket_params[:name], price: racket_params[:price],kind: racket_params[:kind],image: racket_params[:image],user_id: current_user.id)
+    if @racket.save
+      redirect_to rackets_path
+    else
+      render :new
+    end
   end
 
   def destroy
