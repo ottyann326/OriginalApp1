@@ -1,3 +1,10 @@
+<% if @racket.errors.any? %>
+  <% @racket.errors.full_messages.each do |message| %>
+    <p>※入力エラー</p>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
 <% if user_signed_in? %>
   <%= form_for @racket, method: :post do |f| %>
     <h2>ラケット 新規投稿</h2>
