@@ -8,6 +8,7 @@ class Racket < ApplicationRecord
 
   validates :name, :kind, presence: :true, length: { maximum: 20 }
   validates :price, numericality: { only_integer: true }
+  validates :image, presence: :true
 
   def search
     Racket.ransack(name_cont: @search_name, kind_cont: @search_kind).result
