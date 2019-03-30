@@ -16,6 +16,7 @@ class RacketsController < ApplicationController
   def create
     @racket = Racket.create(name: racket_params[:name], price: racket_params[:price],kind: racket_params[:kind],image: racket_params[:image],user_id: current_user.id)
     if @racket.save
+      flash[:notice] = "投稿が完了しました"
       redirect_to rackets_path
     else
       render :new
@@ -23,14 +24,20 @@ class RacketsController < ApplicationController
   end
 
   def destroy
-    @racket.destroy
+    if @racket.destroy
+      flash[:notice] = "削除が完了しました"
+      redirect_to rackets_path
+    end
   end
 
   def edit
   end
 
   def update
-    @racket.update(racket_params)
+    if @racket.update(racket_params)
+      flash[:notice] = "編集が完了しました"
+      redirect_to rackets_path
+    end
   end
 
   def show
