@@ -4,6 +4,10 @@
   <div class="mb-2"><%= submit_tag '検索' %></div>
 <% end %>
 
+<% if flash[:notice] %>
+  <div class="h3 text-center"><%= flash[:notice] %></div>
+<% end %>
+
 <% if user_signed_in? %>
   <% @rackets.each do |racket| %>
     <div class="mb-4">
