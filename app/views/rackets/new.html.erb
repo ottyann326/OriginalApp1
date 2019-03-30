@@ -1,7 +1,13 @@
 <% if @racket.errors.any? %>
+  <h2>
+    <font color="red">※入力エラーです</font>
+  </h2>
   <% @racket.errors.full_messages.each do |message| %>
-    <p>※入力エラー</p>
-    <p><%= message %></p>
+    <ul>
+      <li>
+        <font color="red"><%= message %></font>
+      </li>
+    </ul>
   <% end %>
 <% end %>
 
