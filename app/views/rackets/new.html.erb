@@ -14,7 +14,7 @@
 <% if user_signed_in? %>
   <%= form_for @racket, method: :post do |f| %>
     <h2>ラケット 新規投稿</h2>
-      <div class="mb-3">ラケットの情報を入力してください</div>
+      <!-- <div class="mb-3">ラケットの情報を入力してください</div> -->
       <div class="mb-2">名前:<%= f.text_field :name %></div>
       <div class="mb-2">値段:<%= f.text_field :price %></div>
       <div class="mb-2">種類:<%= f.text_field :kind %></div>
